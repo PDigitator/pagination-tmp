@@ -7,9 +7,9 @@ const paginationCenter = document.querySelector('.js-pagination-center');
 const paginationRight = document.querySelector('.js-pagination-right');
 
 let pageCurrent = 1; //!!!!!!!!!!!!!!
-const pageLast = quantityPages; //!!!!!!!!!!!!!!
+const pageLast = 7; //!!!!!!!!!!!!!!
 
-// console.log(pageLast); //!!
+// console.log('zxcvbnm', pageLast); //!!
 
 // Запит на бекенд
 // async function getHero(page = 1) {
