@@ -1,8 +1,14 @@
 // import { paginOptions, paginOptionsLess } from './pagination-options.js';
 import { galleryItems } from './gallery-items.js';
 
+import { createPaginataionBtn, createPaginataion } from './pagination-btn.js';
+
 // let options = null;
 let subarray = [];
+let quantityItems = 0;
+// export let quantityPages = null;
+let quantityPages = 0;
+let pageCurrent = 1;
 
 // const paginOptions = {
 //   totalItems: 0,
@@ -59,6 +65,7 @@ let subarray = [];
 // };
 
 if (window.screen.width <= 375) {
+  //!!!!
   // options = paginOptionsLess;
   // pagination.setItemsPerPage(4);
 } else {
@@ -67,7 +74,7 @@ if (window.screen.width <= 375) {
 }
 
 // const Pagination = tui.Pagination;
-const container = document.getElementById('tui-pagination-container');
+// const container = document.getElementById('tui-pagination-container');
 // const pagination = new Pagination(container, options);
 // const page = pagination.getCurrentPage();
 
@@ -78,28 +85,29 @@ const gallery = document.querySelector('.gallery');
 const STORAGE_KEY = 'test';
 localStorage.setItem(STORAGE_KEY, JSON.stringify(galleryItems));
 
-if (window.screen.width <= 375) {
-  // options = paginOptionsLess;
-  // pagination.setItemsPerPage(4);
-} else {
-  // options = paginOptions;
-  // pagination.setItemsPerPage(3);
-}
+// if (window.screen.width <= 375) {
+//   // options = paginOptionsLess;
+//   // pagination.setItemsPerPage(4);
+// } else {
+//   // options = paginOptions;
+//   // pagination.setItemsPerPage(3);
+// }
 
 getData();
 
 // get data from local storage by key
-function getData() {
+export function getData() {
   const storageData = JSON.parse(localStorage.getItem(STORAGE_KEY));
-  console.log(typeof storageData);
+  console.log(typeof storageData); //!!!!
 
   const items = Object.values(storageData);
   console.log('Items:', items);
 
-  const quantityItems = items.length;
-  const quantityPages = quantityItems / 3; // кол-во страниц
+  quantityItems = items.length;
+  quantityPages = Math.ceil(quantityItems / 3); // кол-во страниц
   // pagination.reset(quantityItems);
-  console.log('Total items:', quantityItems);
+  console.log('Total items:', quantityItems); //!!!
+  console.log('Total Pages:', quantityPages); //!!!
 
   let i = 0;
   for (const item of items) {
@@ -119,21 +127,26 @@ function getData() {
     'beforeend',
     makeImageGallery(subarray.slice(0, 3))
   );
+
+  createPaginataionBtn(quantityPages);
+  createPaginataion(pageCurrent, quantityPages);
+
+  return quantityPages;
 }
 
-function getNewDataBatch(event) {
-  const currentPage = event.page; //10
-  console.log('Current page', currentPage);
+export function getNewDataBatch(page) {
+  const currentPage = page; //10
+  console.log('Current page', currentPage); //!!!
 
   let minIndex = currentPage * 3 - 3; // 0 27
-  let maxIndex = currentPage * 3; // 2
+  let maxIndex = currentPage * 3; // 2 //???
   console.log('Min index', minIndex);
   console.log('Max index', maxIndex);
 
   gallery.innerHTML = makeImageGallery(subarray.slice(minIndex, maxIndex));
 }
 
-function makeImageGallery(galleryItems) {
+export function makeImageGallery(galleryItems) {
   return galleryItems
     .map(({ preview, original, description }) => {
       return `
@@ -150,3 +163,5 @@ function makeImageGallery(galleryItems) {
     })
     .join('');
 }
+
+// export { quantityPages };
