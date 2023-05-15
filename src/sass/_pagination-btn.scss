@@ -1,0 +1,17 @@
+.pag-wrap {
+  display: flex;
+  justify-content: space-between;
+
+  padding: 0 6px;
+
+  &__left,
+  &__right {
+    display: flex;
+    gap: 5px;
+  }
+
+  &__center {
+    display: flex;
+    gap: 8px;
+  }
+}

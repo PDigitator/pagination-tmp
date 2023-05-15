@@ -1,2 +1,22 @@
+/* General */
+@import './utils/variables';
+@import './fonts';
+@import './utils/base';
+@import './common';
+@import './utils/mixins';
+@import './utils/placeholders';
+@import './utils/buttons';
+
 @import './common';
 @import './example';
+@import './modalAuth';
+@import './spinner';
+@import './bookshelf';
+@import './categories';
+@import './sidebar';
+@import './scroll-up';
+@import './modal-window';
+@import './pagination-btn';
+@import './header';
+@import './modal-w';
+@import './burgerModal';
