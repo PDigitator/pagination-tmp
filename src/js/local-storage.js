@@ -59,10 +59,10 @@ let subarray = [];
 // };
 
 if (window.screen.width <= 375) {
-  options = paginOptionsLess;
+  // options = paginOptionsLess;
   // pagination.setItemsPerPage(4);
 } else {
-  options = paginOptions;
+  // options = paginOptions;
   // pagination.setItemsPerPage(3);
 }
 
@@ -73,17 +73,17 @@ const container = document.getElementById('tui-pagination-container');
 
 const gallery = document.querySelector('.gallery');
 
-pagination.on('beforeMove', getNewDataBatch);
+// pagination.on('beforeMove', getNewDataBatch);
 
 const STORAGE_KEY = 'test';
 localStorage.setItem(STORAGE_KEY, JSON.stringify(galleryItems));
 
 if (window.screen.width <= 375) {
   // options = paginOptionsLess;
-  pagination.setItemsPerPage(4);
+  // pagination.setItemsPerPage(4);
 } else {
   // options = paginOptions;
-  pagination.setItemsPerPage(3);
+  // pagination.setItemsPerPage(3);
 }
 
 getData();
