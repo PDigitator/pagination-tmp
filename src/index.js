@@ -1,10 +1,10 @@
-import './js/axiosApi';
-import './js/authmodal';
+// import './js/axiosApi';
+// import './js/authmodal';
 import './js/main';
-import './js/categories';
-import './js/scroll-up';
-import { openModal } from './js/modal-w';
-import './js/burgerModal';
+// import './js/categories';
+// import './js/scroll-up';
+// import { openModal } from './js/modal-w';
+// import './js/burgerModal';
 import './js/pagination-btn';
 // import './js/modal-window';
 // const throttle = require('lodash.throttle');
