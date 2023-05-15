@@ -131,7 +131,7 @@ export function getData() {
   createPaginataionBtn(quantityPages);
   createPaginataion(pageCurrent, quantityPages);
 
-  return quantityPages;
+  console.log('zxcvbnm', quantityPages);
 }
 
 export function getNewDataBatch(page) {
