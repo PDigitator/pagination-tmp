@@ -6,8 +6,8 @@ import { createPaginataionBtn, createPaginataion } from './pagination-btn.js';
 // let options = null;
 let subarray = [];
 let quantityItems = 0;
-// export let quantityPages = null;
-let quantityPages = 0;
+export let quantityPages = 0;
+// let quantityPages = 0;
 let pageCurrent = 1;
 
 // const paginOptions = {

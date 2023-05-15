@@ -1,18 +1,13 @@
 import svgHref from '../images/icons.svg';
 
-import {
-  getData,
-  getNewDataBatch,
-  makeImageGallery,
-  quantityPages,
-} from './local-storage';
+import { quantityPages, getNewDataBatch } from './local-storage';
 
 const paginationLeft = document.querySelector('.js-pagination-left');
 const paginationCenter = document.querySelector('.js-pagination-center');
 const paginationRight = document.querySelector('.js-pagination-right');
 
 let pageCurrent = 1; //!!!!!!!!!!!!!!
-let pageLast = 7; //!!!!!!!!!!!!!!
+const pageLast = quantityPages; //!!!!!!!!!!!!!!
 
 // console.log(pageLast); //!!
 
@@ -104,12 +99,12 @@ export function createPaginataion(currentPage, totalPages) {
 
       if (currentPage !== totalPages) {
         markup += `<li><button class="btn-pag btn-pag--not-current js-pag-marker" type="button">${
-          currentPage + 1
+          Number(currentPage) + 1
         }</button></li>`;
 
         if (currentPage !== totalPages && currentPage < totalPages - 1) {
           markup += `<li><button class="btn-pag btn-pag--not-current js-pag-marker" type="button">${
-            currentPage + 2
+            Number(currentPage) + 2
           }</button></li>`;
         }
         if (currentPage < totalPages - 2) {
@@ -129,13 +124,13 @@ export function createPaginataion(currentPage, totalPages) {
 
       markup +=
         `<li><button class="btn-pag btn-pag--not-current js-pag-marker" type="button">${
-          currentPage - 1
+          Number(currentPage) - 1
         }</button></li>` +
         `<li><button class="btn-pag btn-pag--current js-pag-marker" data-marker = "current" type="button">${currentPage}</button></li>`;
 
       if (currentPage !== totalPages) {
         markup += `<li><button class="btn-pag btn-pag--not-current js-pag-marker" type="button">${
-          currentPage + 1
+          Number(currentPage) + 1
         }</button></li>`;
         if (currentPage <= totalPages - 2) {
           if (window.innerWidth > 767.99) {
@@ -153,10 +148,10 @@ export function createPaginataion(currentPage, totalPages) {
       }
       markup +=
         `<li><button class="btn-pag btn-pag--not-current js-pag-marker" type="button">${
-          currentPage - 2
+          Number(currentPage) - 2
         }</button></li>` +
         `<li><button class="btn-pag btn-pag--not-current js-pag-marker" type="button">${
-          currentPage - 1
+          Number(currentPage) - 1
         }</button></li>` +
         `<li><button class="btn-pag btn-pag--current js-pag-marker" data-marker = "current" type="button">${currentPage}</button></li>`;
       if (currentPage <= totalPages - 2 || currentPage === totalPages - 1) {
